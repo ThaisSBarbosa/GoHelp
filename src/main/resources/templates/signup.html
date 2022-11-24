@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Busca icones: https://fontawesome.com/icons   -->
+
+<head th:replace="~{templates :: head}"></head>
+
+<body class="">
+	<div th:replace="~{templates :: menu-superior}"></div>
+
+
+
+	<main class="main-content  mt-0">
+		<div
+			class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
+			style="background-image: url('/img/help2.jpg'); background-position: top; background-size: cover;">
+			<span class="mask bg-gradient-dark opacity-6"></span>
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-5 text-center mx-auto">
+						<h1 class="text-white mb-2 mt-5">Bem-vindo!</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
+				<div class="col-xl col-lg-5 col-md-7 mx-auto">
+					<div class="card z-index-0">
+						<div class="card-header text-center pt-4">
+							<h5>Cadastro de Usuário</h5>
+						</div>
+
+						<div class="card-body">
+							<form th:object="${requisicaoNovoUsuario}"
+								action="/cadusuario" method="POST">
+								<div class="row">
+									<div class="col mb-3">
+										<label for="nome">Nome:</label> <input
+											th:field="*{nome}"
+											th:errorClass="is-invalid" class="form-control"
+											placeholder="Nome" aria-label="Nome">
+										<div class="invalid-feedback" th:errors="*{nome}"> Erro</div>
+									</div>
+									<div class="col mb-3">
+										<label for="cpf">CPF:</label> <input type="text"
+											th:field="*{cpf}"
+											th:errorClass="is-invalid" class="form-control" id="cpf" 
+											placeholder="CPF" aria-label="CPF">											
+											<div class="invalid-feedback" th:errors="*{cpf}"> Erro</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col mb-3">
+										<label for="Email">Email:</label> <input type="email"
+											th:field="*{email}" th:errorClass="is-invalid"
+											class="form-control" id="email" placeholder="Email"
+											aria-label="Email">
+											<div class="invalid-feedback" th:errors="*{email}"> Erro</div>
+									</div>
+									<div class="col mb-3">
+										<label for="emailConfirma">Confirme o Email:</label> <input th:errorClass="is-invalid"
+											type="email" class="form-control" th:field="*{emailConfirma}"									
+											placeholder="Confirme o Email" aria-label="Confirma Email">
+											<div class="invalid-feedback" th:errors="*{emailConfirma}"> Erro</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col mb-3">
+										<label for="senha">Senha:</label> <input type="password"  th:field="*{senha}"	th:errorClass="is-invalid"
+											class="form-control" 
+											placeholder="Senha" aria-label="Senha">											
+											<div class="invalid-feedback" th:errors="*{senha}"> Erro </div>
+									</div>
+									<div class="col mb-3">
+										<label for="senhaConfirma">Confirme a Senha:</label> <input
+											type="password" class="form-control" th:field="*{senhaConfirma}" th:errorClass="is-invalid"
+											placeholder="Confirme a Senha" aria-label="Confirme a Senha">
+											<div class="invalid-feedback" th:errors="*{senhaConfirma}"> Erro</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-6">
+										<label for="endereco">Endereço:</label> <input type="text" th:field="*{endereco}" th:errorClass="is-invalid"
+											class="form-control"
+											placeholder="Endereço" aria-label="Endereço">
+									</div>
+									<div class="col-1 mb-3">
+										<label for="numeroEndereco">N°:</label> <input type="text" th:errorClass="is-invalid"
+											name="numeroEndereco" class="form-control"
+											id="numeroEndereco" placeholder="n°"
+											aria-label="Número Endereco">
+									</div>
+									<div class="col-3 mb-3">
+										<label for="complementoEndereco">Complem. endereço:</label> <input
+											type="text" name="complementoEndereco" th:errorClass="is-invalid" class="form-control"
+											id="complementoEndereco"
+											placeholder="Complemento de endereço"
+											aria-label="Complemento de endereço">
+									</div>
+									<div class="col mb-3">
+										<label for="cep">CEP:</label> <input type="text" th:field="*{cep}" th:errorClass="is-invalid"
+											class="form-control" placeholder="CEP"
+											aria-label="cep">											
+											<div class="invalid-feedback" th:errors="*{email}"> Erro</div>
+									</div>
+								</div>
+								<div class="mb-3">
+									<label for="tipoUsuario">Tipo de Usuário:</label> <select
+										class="form-control"
+										th:field="*{tipoUsuario}"
+										th:errorClass="is-invalid"
+										onchange="formataCampos()">
+										<option disabled selected value="0j" style="color: #d2d6da;">--
+											Selecione uma opção --</option>
+										<option value="doador">Doador</option>
+										<option value="solicitante">Solicitante</option>
+										<option value="prestador">Prestador</option>
+									</select>
+								</div>
+								<!-- ********************************************************** -->
+								<div id="aceiteSolicitante" class="row"
+									style="visibility: hidden;">
+									<div class="col-sm-12">
+										<div class="form-check form-check-info text-start">
+											<input class="form-check-input" type="checkbox" value=""
+												name="consultaCadUnico" id="consultaCadUnico" checked>
+											<label class="form-check-label" for="flexCheckDefault">Estou
+												ciente que meu CPF será consultado no sistema CadÚnico da
+												Caixa Econômica Federal para comprovar baixa renda.</label>
+										</div>
+									</div>
+								</div>
+								<div id="dadosCartao" style="visibility: hidden;">
+									<div class="row">
+										<div class="col-md-12">
+											<label for="contribuicaoMensal">Contribua mensalmente
+												com um valor simbólico para a existência deste programa</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<label for="numeroCartao">Número do Cartão:</label> <input
+												type="text" class="form-control" id="numeroCartao"
+												name="numeroCartao" placeholder="Número do Cartão"
+												aria-label="Número do Cartão">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col mb-3">
+											<label for="validadeCartao">Validade:</label> <input
+												type="text" name="validadeCartao" class="form-control"
+												id="validadeCartao" placeholder="Validade"
+												aria-label="Validade">
+										</div>
+										<div class="col mb-3">
+											<label for="codigoSeguranca">Código de Segurança:</label> <input
+												type="text" class="form-control" id="codigoSeguranca"
+												name="codigoSeguranca" placeholder="Código de Segurança"
+												aria-label="CodigoSeguranca">
+										</div>
+									</div>
+								</div>
+								<div id="dadosPrestador" style="visibility: hidden;">
+									<div class="row">
+										<div class="col mb-3">
+											<label for="diaSemana">Dia da Semana para Realizar
+												Entregas:</label> <select class="form-control" id="diaSemana"
+												name="diaSemana">
+												<option disabled selected value="empty"
+													style="color: #d2d6da;">-- Selecione uma opção --</option>
+												<option value="segunda">seg</option>
+												<option value="terça">ter</option>
+												<option value="quarta">qua</option>
+												<option value="quinta">qui</option>
+												<option value="sexta">sex</option>
+												<option value="sabado">sab</option>
+												<option value="domingo">dom</option>
+											</select>
+										</div>
+										<div class="col mb-3">
+											<label for="numeroCNH">Número da CNH:</label> <input
+												type="text" class="form-control" id="numeroCNH"
+												name="numeroCNH" placeholder="Número da CNH"
+												aria-label="Numero CNH">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col mb-3">
+											<label for="periodoDisponivel">Período Disponível:</label> <select 
+												class="form-control" id="periodoDisponivel"
+												name="periodoDisponivel">
+												<option disabled selected value="empty"
+													style="color: #d2d6da;">-- Selecione uma opção --</option>
+												<option value="manha">Manhã</option>
+												<option value="tarde">Tarde</option>
+												<option value="noite">Noite</option>
+											</select>
+										</div>
+										<div class="col mb-3"></div>
+									</div>
+								</div>
+								<!-- ******************************************************** -->
+								<div class="form-check form-check-info text-start">
+									<input class="form-check-input" type="checkbox" value=""
+										name="aceitaTermos" id="aceitaTermos" checked> <label
+										class="form-check-label" for="aceitaTermos">Eu aceito
+										os <a href="" class="text-dark font-weight-bolder">Termos
+											e Condições</a>
+									</label>
+								</div>
+								<div class="text-center">
+									<button id="cadastrar" type="submit"
+										class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Cadastre-se</button>
+								</div>
+								<p class="text-sm mt-3 mb-0">
+									Já possui uma conta? <a href="signin"
+										class="text-dark font-weight-bolder">Faça login aqui</a>
+								</p>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer th:replace="~{templates :: footer}"></footer>
+	<section th:replace="~{templates :: scripts}"></section>
+</body>
+
+</html>

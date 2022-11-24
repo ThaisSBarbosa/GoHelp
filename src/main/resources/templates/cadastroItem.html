@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Busca icones: https://fontawesome.com/icons   -->
+
+<head th:replace="~{templates :: head}"></head>
+
+<body class="g-sidenav-show  bg-gray-100">
+	<div class="min-height-300 bg-primary position-absolute w-100"></div>
+	<!-- Sidebar -->
+	<aside th:replace="~{templates :: menu-lateral}"></aside>
+	<main class="main-content position-relative border-radius-lg ">
+
+		<nav th:replace="~{templates :: barra-superior}"></nav>
+
+
+		<div class="container-fluid py-4">
+
+			<div class="row">
+				<div class="col-xl mb-lg-0 mb-4">
+					<div class="card p-3">
+						<div class="card-header text-center pt-4">
+							<h2>Cadastro de Itens para Doação</h2>
+						</div>
+
+						<div class="card-body">
+							<form role="form" th:object="${requisicaoNovoItem}" th:action="@{/caditem}" method="POST">
+								<div class="mb-3">
+									<label for="nomeItem">Nome do Item:</label> <input  th:field="${requisicaoNovoItem.nomeItem}"
+										class="form-control" placeholder="Nome"	aria-label="Name">
+								</div>
+								<div class="mb-3">
+									<label for="idCategoria">Selecione a Categoria:</label> <select
+										class="form-control" th:field="${requisicaoNovoItem.idCategoria}">
+										<option disabled selected value="empty"
+											style="color: #d2d6da;">-- Selecione uma opção --</option>
+										<option value="1">Vestuário</option>
+										<option value="2">Produtos de Limpeza</option>
+										<option value="3">Outros</option>
+									</select>
+								</div>
+								<div class="mb-3">
+									<label for="descricaoItem">Descrição do Produto:</label> <input
+										type="text" class="form-control" th:field="${requisicaoNovoItem.descricaoItem}"
+										placeholder="Descrição Produto" aria-label="Descrição Produto">
+								</div>
+
+								<div class="mb-3">
+									<div class="">
+										<label for="imagemItem">Selecione arquivo: </label> <input
+											type="file" th:field="${requisicaoNovoItem.imagemItem}"
+											class="form-control custom-file-input"
+											placeholder="Selecionar arquivo" aria-label="imagemItem">
+									</div>
+								</div>
+
+								<div class="text-center">
+									<button type="submit"
+										class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Adicionar</button>
+								</div>
+							</form>
+						</div>
+
+
+					</div>
+
+
+				</div>
+
+			</div>
+
+
+
+
+
+
+		</div>
+	</main>
+
+	<footer th:replace="~{templates :: footer}"></footer>
+	<section th:replace="~{templates :: scripts}"></section>
+
+
+</body>
+
+</html>

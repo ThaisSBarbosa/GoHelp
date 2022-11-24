@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Busca icones: https://fontawesome.com/icons   -->
+
+<head th:replace="~{templates :: head}"></head>
+
+<body class="g-sidenav-show  bg-gray-100">
+	<div class="min-height-300 bg-primary position-absolute w-100"></div>
+	<aside th:replace="~{templates :: menu-lateral}"></aside>
+
+
+	<main class="main-content position-relative border-radius-lg ">
+
+		<nav th:replace="~{templates :: barra-superior}"></nav>
+		<div class="container-fluid py-4">
+
+			<div class="row">
+				<div class="col-xl mb-lg-0 mb-4">
+					<div class="card p-3">
+
+						<h2 class="text-center">Minhas Solicitações</h2>
+
+						<div class="card">
+							<div class="table-responsive">
+								<table class="table align-items-center mb-0">
+									<thead>
+										<tr>
+											<th
+												class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Pedido</th>
+											<th
+												class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Descrição</th>
+											<th
+												class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Status</th>
+											<th
+												class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Conclusão</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												<h6 class="mb-0 text-xs text-center">2201001234</h6>
+											</td>
+											<td class="col-5">
+												<div class="d-flex px-2">
+													<div>
+														<img src="/img/touca_la.jpg"
+															class="avatar avatar-sm rounded-circle me-2">
+													</div>
+													<div class="my-auto">
+														<p class="text-xs text-dark font-weight-bold mb-0">Touca
+															de lã</p>
+													</div>
+												</div>
+											</td>
+											<td><span class="badge badge-dot me-4"> <i
+													class="bg-info"></i> <span class="text-dark text-xs">em
+														transporte</span>
+											</span></td>
+											<td class="align-middle text-center">
+												<div class="d-flex align-items-center">
+													<span class="me-2 text-xs">75%</span>
+													<div>
+														<div class="progress">
+															<div class="progress-bar bg-info" role="progressbar"
+																aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+																style="width: 60%;"></div>
+														</div>
+													</div>
+												</div>
+											</td>
+
+											<td class="align-middle">
+												<button class="btn btn-link text-secondary mb-0">
+													<i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
+												</button>
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<h6 class="mb-0 text-xs text-center">2200999875</h6>
+											</td>
+											<td class="col-5">
+												<div class="d-flex px-2">
+													<div>
+														<img src="/img/moletom.jpg"
+															class="avatar avatar-sm rounded-circle me-2">
+													</div>
+													<div class="my-auto">
+														<p class="text-xs text-dark font-weight-bold mb-0">Moletom
+															masculino M</p>
+													</div>
+												</div>
+											</td>
+											<td><span class="badge badge-dot me-4"> <i
+													class="bg-info"></i> <span class="text-dark text-xs">aguardando
+														aprovação</span>
+											</span></td>
+											<td class="align-middle text-center">
+												<div class="d-flex align-items-right">
+													<span class="me-2 text-xs">10%</span>
+													<div>
+														<div class="progress">
+															<div class="progress-bar bg-warning" role="progressbar"
+																aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"
+																style="width: 10%;"></div>
+														</div>
+													</div>
+												</div>
+											</td>
+
+											<td class="align-middle">
+												<button class="btn btn-link text-secondary mb-0">
+													<i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
+												</button>
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<h6 class="mb-0 text-xs text-center">2102991435</h6>
+											</td>
+											<td class="col-5">
+												<div class="d-flex px-2">
+													<div>
+														<img src="/img/cadeira_amarela.jpg"
+															class="avatar avatar-sm rounded-circle me-2">
+													</div>
+													<div class="my-auto">
+														<p class="text-xs text-dark font-weight-bold mb-0">Cadeira
+															estofada amarela</p>
+													</div>
+												</div>
+											</td>
+											<td><span class="badge badge-dot me-4"> <i
+													class="bg-info"></i> <span class="text-dark text-xs">entregue</span>
+											</span></td>
+											<td class="align-middle text-center">
+												<div class="d-flex align-items-center">
+													<span class="me-2 text-xs">100%</span>
+													<div>
+														<div class="progress">
+															<div class="progress-bar bg-success" role="progressbar"
+																aria-valuenow="100" aria-valuemin="0"
+																aria-valuemax="100" style="width: 100%;"></div>
+														</div>
+													</div>
+												</div>
+											</td>
+
+											<td class="align-middle">
+												<button class="btn btn-link text-secondary mb-0">
+													<i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
+												</button>
+											</td>
+										</tr>
+
+										<tr class="">
+											<td>
+												<h6 class="mb-0 text-xs text-center">
+													<del>2102991298</del>
+												</h6>
+											</td>
+											<td class="col-5">
+												<div class="d-flex px-2">
+													<div>
+														<img src="/img/ferro_passar.jpg"
+															class="avatar avatar-sm rounded-circle me-2">
+													</div>
+													<div class="my-auto">
+														<p class="text-xs text-dark font-weight-bold mb-0">
+															<del>Ferro de passar</del>
+														</p>
+													</div>
+												</div>
+											</td>
+											<td><span class="badge badge-dot me-4"> <i
+													class="bg-info"></i> <span class="text-dark text-xs"><del>cancelado</del></span>
+											</span></td>
+											<td class="align-middle text-center">
+												<div class="d-flex align-items-center">
+													<span class="me-2 text-xs">0% </span>
+													<div>
+														<div class="progress">
+															<div class="progress-bar bg-danger" role="progressbar"
+																aria-valuenow="100" aria-valuemin="0"
+																aria-valuemax="100" style="width: 100%;"></div>
+														</div>
+													</div>
+												</div>
+											</td>
+
+											<td class="align-middle">
+												<button class="btn btn-link text-secondary mb-0">
+													<i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
+												</button>
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<h6 class="mb-0 text-xs text-center">2102991071</h6>
+											</td>
+											<td class="col-5">
+												<div class="d-flex px-2">
+													<div>
+														<img src="/img/mesa.jpg"
+															class="avatar avatar-sm rounded-circle me-2">
+													</div>
+													<div class="my-auto">
+														<p class="text-xs text-dark font-weight-bold mb-0">Mesa</p>
+													</div>
+												</div>
+											</td>
+											<td><span class="badge badge-dot me-4"> <i
+													class="bg-info"></i> <span class="text-dark text-xs">entregue</span>
+											</span></td>
+											<td class="align-middle text-center">
+												<div class="d-flex align-items-center">
+													<span class="me-2 text-xs">100%</span>
+													<div>
+														<div class="progress">
+															<div class="progress-bar bg-success" role="progressbar"
+																aria-valuenow="100" aria-valuemin="0"
+																aria-valuemax="100" style="width: 100%;"></div>
+														</div>
+													</div>
+												</div>
+											</td>
+
+											<td class="align-middle">
+												<button class="btn btn-link text-secondary mb-0">
+													<i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
+												</button>
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<h6 class="mb-0 text-xs text-center">2102059005</h6>
+											</td>
+											<td class="col-5">
+												<div class="d-flex px-2">
+													<div>
+														<img src="/img/pratos.jpg"
+															class="avatar avatar-sm rounded-circle me-2">
+													</div>
+													<div class="my-auto">
+														<p class="text-xs text-dark font-weight-bold mb-0">Jogo
+															de pratos de jantar</p>
+													</div>
+												</div>
+											</td>
+											<td><span class="badge badge-dot me-4"> <i
+													class="bg-info"></i> <span class="text-dark text-xs">entregue</span>
+											</span></td>
+											<td class="align-middle text-center">
+												<div class="d-flex align-items-center">
+													<span class="me-2 text-xs">100%</span>
+													<div>
+														<div class="progress">
+															<div class="progress-bar bg-success" role="progressbar"
+																aria-valuenow="100" aria-valuemin="0"
+																aria-valuemax="100" style="width: 100%;"></div>
+														</div>
+													</div>
+												</div>
+											</td>
+
+											<td class="align-middle">
+												<button class="btn btn-link text-secondary mb-0">
+													<i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+			<footer th:replace="~{templates :: footer}"></footer>
+		</div>
+	</main>
+
+	<section th:replace="~{templates :: scripts}"></section>
+
+</body>
+
+</html>

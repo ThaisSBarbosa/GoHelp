@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Busca icones: https://fontawesome.com/icons   -->
+
+<head th:replace="~{templates :: head}">
+<script src="../static/js/solicitacao.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body class="g-sidenav-show  bg-gray-100">
+	<div class="min-height-300 bg-primary position-absolute w-100"></div>
+	<aside th:replace="~{templates :: menu-lateral}"></aside>
+
+
+	<main class="main-content position-relative border-radius-lg ">
+
+		<nav th:replace="~{templates :: barra-superior}"></nav>
+		<div class="container-fluid py-4">
+
+			<div class="row">
+				<div class="col-xl mb-lg-0 mb-4">
+					<div class="card p-3">
+
+						<h2 class="text-center">Gerenciar Solicitações</h2>
+
+						<div class="card">
+							<div class="table-responsive">
+
+								<table class="table align-items-center mb-0">
+									<thead>
+										<tr>
+											<th
+												class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">Pedido</th>
+											<th
+												class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Descrição</th>
+											<th
+												class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Interessado</th>
+											<th
+												class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Status</th>
+											<th
+												class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">Ação</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="solicitacao : ${solicitacoes}">
+
+											<td>
+												<h6 class="mb-0 text-xs text-center"
+													th:text="${solicitacao.id}">2201001234</h6>
+											</td>
+											<td class="col-5">
+												<div class="d-flex px-2">
+													<div>
+														<img src="/img/touca_la.jpg"
+															class="avatar avatar-sm rounded-circle me-2">
+													</div>
+													<div class="my-auto">
+														<p class="text-xs text-dark font-weight-bold mb-0">Touca
+															de Lã M</p>
+													</div>
+												</div>
+											</td>
+											<td class="align-items-right"><span
+												class="badge badge-dot mb-0"> <span
+													class="text-dark text-xs">Ada Lovelace</span>
+											</span></td>
+											<td>
+												<h6 class="mb-0 text-xs text-center"
+													th:text="${solicitacao.status}">Status</h6>
+											</td>
+											<td>
+												<div class="d-flex justify-content-center">
+
+													<form
+														th:action="@{'/solicitacaoAlteraStatus/'+${solicitacao.id}}"
+														method="POST">
+
+														<input type="submit" class="btn btn-success"
+															name="aprovar" value="Aprovar" /> <input type="submit"
+															class="btn btn-danger" name="rejeitar" value="Rejeitar" />
+														<input type="submit" class="btn btn-secondary"
+															name="cancelar" value="Cancelar" />
+													</form>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+						</div>
+
+
+
+					</div>
+
+				</div>
+
+			</div>
+			<footer th:replace="~{templates :: footer}"></footer>
+		</div>
+	</main>
+
+	<section th:replace="~{templates :: scripts}"></section>
+
+</body>
+
+</html>

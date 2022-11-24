@@ -1,0 +1,11 @@
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+.botaoItem {
+    display: inline-block;
+    margin: 15px 10px;
+    height: 50px;
+}
